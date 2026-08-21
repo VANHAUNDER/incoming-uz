@@ -1,42 +1,47 @@
 #!/usr/bin/env python3
-"""Собирает index.html: встраивает логотип, документы и PDF в шаблон."""
-import base64, pathlib, sys
+"""Собирает index.html: встраивает логотип, изображения документов и PDF в шаблон.
+
+    python3 build.py
+
+Всё из assets/ уходит в файл как data-URI, поэтому итоговый index.html
+самодостаточен — его можно просто положить на любой хостинг.
+"""
+import base64
+import pathlib
 
 HERE = pathlib.Path(__file__).parent
-SCRATCH = pathlib.Path(
-    "/private/tmp/claude-501/-Users-sayber-al/928fc77b-c7d1-4eac-8293-aabac9d4b7b7/scratchpad"
-)
-OUT = SCRATCH / "out"
+ASSETS = HERE / "assets"
+
+SUBS = {
+    "{{LOGO}}":       ("logo512.webp",  "image/webp"),
+    "{{LIC_THUMB}}":  ("lic_thumb.webp",  "image/webp"),
+    "{{CERT_THUMB}}": ("cert_thumb.webp", "image/webp"),
+    "{{LIC_FULL}}":   ("lic_full.webp",   "image/webp"),
+    "{{CERT_FULL}}":  ("cert_full.webp",  "image/webp"),
+    "{{LIC_PDF}}":    ("lic.pdf",   "application/pdf"),
+    "{{CERT_PDF}}":   ("cert.pdf",  "application/pdf"),
+}
 
 
-def data_uri(path, mime):
-    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+def data_uri(name, mime):
+    raw = (ASSETS / name).read_bytes()
+    return f"data:{mime};base64," + base64.b64encode(raw).decode()
 
 
 def main():
     tpl = (HERE / "card.template.html").read_text(encoding="utf-8")
 
-    subs = {
-        "{{LOGO}}":        data_uri(OUT / "logo512.webp", "image/webp"),
-        "{{LIC_THUMB}}":   data_uri(OUT / "lic_thumb.webp", "image/webp"),
-        "{{CERT_THUMB}}":  data_uri(OUT / "cert_thumb.webp", "image/webp"),
-        "{{LIC_FULL}}":    data_uri(OUT / "lic_full.webp", "image/webp"),
-        "{{CERT_FULL}}":   data_uri(OUT / "cert_full.webp", "image/webp"),
-        "{{LIC_PDF}}":     data_uri(SCRATCH / "lic.pdf", "application/pdf"),
-        "{{CERT_PDF}}":    data_uri(SCRATCH / "cert.pdf", "application/pdf"),
-    }
-
-    for k, v in subs.items():
-        if k not in tpl:
-            print("!! placeholder не найден:", k)
-        tpl = tpl.replace(k, v)
+    for placeholder, (name, mime) in SUBS.items():
+        if placeholder not in tpl:
+            print("!! в шаблоне нет плейсхолдера:", placeholder)
+        tpl = tpl.replace(placeholder, data_uri(name, mime))
 
     if "{{" in tpl:
-        print("!! в шаблоне остались неподставленные плейсхолдеры")
+        print("!! остались неподставленные плейсхолдеры")
 
     dst = HERE / "index.html"
     dst.write_text(tpl, encoding="utf-8")
-    print(f"index.html  {dst.stat().st_size/1024:.0f} KB")
+    print(f"index.html — {dst.stat().st_size / 1024:.0f} KB")
 
 
 if __name__ == "__main__":
