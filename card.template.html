@@ -1,0 +1,827 @@
+<meta charset="utf-8">
+<title>Incoming Uzbekistan Travel Agency</title>
+<meta name="description" content="ООО «GT MARKETING AND TOURISM» — лицензированное туристическое агентство, Ташкент. Контакты, реквизиты, лицензия и свидетельство о регистрации.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@500;600;700&display=swap">
+
+<style>
+/* ═══ tokens ═══════════════════════════════════════════════════
+   Единая светлая тема: страница — это документ на белой бумаге.
+   Оба фирменных цвета взяты пипеткой с эмблемы. */
+:root{
+  --violet:#650DB9;        /* эмблема, кольцо */
+  --violet-deep:#3D0770;
+  --violet-ink:#26044A;
+  --gold:#FBD800;          /* эмблема, поле */
+
+  --paper:#FFFFFF;
+  --surface:#F8F5FD;
+  --surface-2:#F0EAFA;
+  --line:#E5DCF4;
+  --ink:#191325;
+  --muted:#6B6383;
+  --ok:#177A3D;
+
+  --col:600px;
+  --r:14px;
+  --pad:clamp(18px,5vw,26px);
+
+  --f-display:Oswald,"Arial Narrow",system-ui,sans-serif;
+  --f-body:"Golos Text",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-data:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+
+.col{width:min(var(--col),100%);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ═══ переключатель языка ══════════════════════════════════════ */
+.lang{
+  position:fixed;top:12px;right:12px;z-index:60;display:flex;gap:2px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;padding:3px;
+  box-shadow:0 4px 16px rgba(38,4,74,.1);
+}
+.lang button{
+  border:0;background:none;cursor:pointer;font-family:var(--f-body);
+  font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--muted);
+  padding:5px 11px;border-radius:999px;
+}
+.lang button[aria-pressed="true"]{background:var(--violet);color:#fff}
+
+/* ═══ шапка: полоса эмблемы ════════════════════════════════════
+   Пурпурная лента проходит за нижней третью логотипа — тот же приём,
+   что и в самой эмблеме, где полоса «UZBEKISTAN» пересекает круг. */
+.head{position:relative;padding:44px 0 0;text-align:center;overflow:hidden}
+.head .band{
+  position:absolute;left:0;right:0;top:126px;height:68px;
+  background:var(--violet);
+}
+.head .band::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--gold);
+}
+.crest{
+  position:relative;width:150px;height:150px;display:block;margin:0 auto;
+  border-radius:50%;background:#fff;
+  box-shadow:0 0 0 5px #fff,0 12px 28px rgba(38,4,74,.34);
+}
+.head .col{position:relative;padding-top:22px}
+
+.legal{
+  font-family:var(--f-display);font-weight:600;
+  font-size:clamp(21px,5.6vw,29px);line-height:1.16;letter-spacing:.005em;
+  text-transform:uppercase;color:var(--ink);
+}
+.trading{
+  margin-top:9px;font-size:clamp(10px,2.6vw,11.5px);font-weight:700;
+  letter-spacing:.28em;padding-left:.28em;text-transform:uppercase;color:var(--violet);
+}
+
+
+/* ═══ быстрые действия ═════════════════════════════════════════ */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}
+.qbtn{
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  padding:14px 4px 12px;border-radius:var(--r);text-decoration:none;
+  background:var(--surface);border:1px solid var(--line);
+  color:var(--violet-ink);font-size:11.5px;font-weight:600;
+  transition:background .15s,border-color .15s,transform .15s;
+}
+.qbtn svg{width:21px;height:21px;stroke:var(--violet)}
+.qbtn:hover{background:#fff;border-color:var(--violet);transform:translateY(-2px)}
+
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  margin-top:9px;padding:15px;border:0;border-radius:var(--r);cursor:pointer;
+  background:var(--violet);color:#fff;
+  font-family:var(--f-body);font-size:15px;font-weight:600;
+  box-shadow:0 8px 22px rgba(101,13,185,.26);
+  transition:background .15s,transform .15s;
+}
+.cta:hover{background:var(--violet-deep);transform:translateY(-2px)}
+.cta svg{width:19px;height:19px;stroke:var(--gold)}
+
+/* ═══ секции ═══════════════════════════════════════════════════ */
+section{padding:38px 0 0}
+.eyebrow{
+  display:flex;align-items:center;gap:11px;margin-bottom:16px;
+  font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--violet);
+}
+.eyebrow::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--gold),rgba(251,216,0,0))}
+
+/* строки «нажми — скопируется» */
+.rows{display:grid;gap:7px}
+.row{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+  font-family:inherit;color:inherit;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:12px 14px;transition:border-color .15s,background .15s;
+}
+.row:hover{background:#fff;border-color:var(--violet)}
+.row .k{display:block;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.row .v{display:block;font-size:15px;font-weight:600;margin-top:3px;word-break:break-word;line-height:1.35}
+.row .v.num{font-family:var(--f-data);font-weight:600;font-size:14.5px;font-variant-numeric:tabular-nums}
+.row .txt{flex:1;min-width:0}
+.row .ic{flex:none;width:18px;height:18px;stroke:var(--muted);opacity:.55;transition:opacity .15s}
+.row:hover .ic{opacity:1;stroke:var(--violet)}
+.row.copied{background:#F1FAF3;border-color:var(--ok)}
+.row.copied .ic{stroke:var(--ok);opacity:1}
+
+/* ═══ лицензия ═════════════════════════════════════════════════ */
+.facts{display:grid;gap:0;margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.fact{display:grid;grid-template-columns:minmax(0,42%) 1fr;gap:14px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.fact:last-child{border-bottom:0}
+.fact:nth-child(odd){background:var(--surface)}
+.fact dt{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);align-self:center}
+.fact dd{margin:0;font-size:14.5px;font-weight:600;line-height:1.4}
+.fact dd.num{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+@media(max-width:430px){
+  .fact{grid-template-columns:1fr;gap:3px}
+  .fact dt{align-self:start}
+}
+
+.kinds{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.kinds li{position:relative;padding-left:27px;font-size:14px;color:#392F4E;line-height:1.45}
+.kinds li::before{
+  content:"";position:absolute;left:2px;top:6px;width:13px;height:7px;
+  border-left:2.5px solid var(--violet);border-bottom:2.5px solid var(--violet);
+  transform:rotate(-45deg);
+}
+
+/* ═══ документы ════════════════════════════════════════════════ */
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:430px){.docs{grid-template-columns:1fr}}
+.doc{
+  display:block;width:100%;padding:0;cursor:pointer;text-align:left;font-family:inherit;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  transition:border-color .15s,box-shadow .15s,transform .15s;
+}
+.doc:hover{border-color:var(--violet);box-shadow:0 12px 30px rgba(38,4,74,.14);transform:translateY(-3px)}
+.doc .shot{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--surface-2)}
+.doc .shot img{width:100%;display:block;object-fit:cover;object-position:top center;height:100%}
+.doc .shot::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,0) 55%,rgba(38,4,74,.55));
+}
+.doc .zoom{
+  display:flex;position:absolute;right:9px;bottom:9px;z-index:1;align-items:center;gap:6px;
+  background:rgba(255,255,255,.94);border-radius:999px;padding:5px 11px;
+  font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--violet);
+}
+.doc .zoom svg{width:13px;height:13px;stroke:var(--violet)}
+.doc .cap{display:block;padding:12px 14px 14px}
+.doc .cap .t{display:block;font-size:14px;font-weight:700;line-height:1.3}
+.doc .cap .s{display:block;font-size:12px;color:var(--muted);margin-top:3px;font-family:var(--f-data)}
+
+/* ═══ банк ═════════════════════════════════════════════════════ */
+.bank{background:var(--violet-ink);border-radius:20px;padding:24px 18px 22px;color:#fff}
+.bank .eyebrow{color:var(--gold)}
+.bank .eyebrow::after{background:linear-gradient(90deg,rgba(251,216,0,.55),rgba(251,216,0,0))}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tab{
+  flex:1;min-width:64px;cursor:pointer;font-family:var(--f-body);
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#D6C9EC;
+  border-radius:10px;padding:9px 6px;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.tab[aria-selected="true"]{background:var(--gold);color:var(--violet-ink);border-color:var(--gold)}
+.brows{display:grid;gap:7px}
+.brow{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+  font-family:inherit;color:#fff;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+  border-radius:11px;padding:11px 13px;transition:background .15s,border-color .15s;
+}
+.brow:hover{background:rgba(255,255,255,.12);border-color:rgba(251,216,0,.6)}
+.brow .k{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#AC9CC9}
+.brow .v{display:block;font-size:14px;font-weight:600;margin-top:3px;word-break:break-word;line-height:1.35}
+.brow .v.num{font-family:var(--f-data);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.brow .txt{flex:1;min-width:0}
+.brow .ic{flex:none;width:17px;height:17px;stroke:#AC9CC9;transition:stroke .15s}
+.brow:hover .ic{stroke:var(--gold)}
+.brow.copied{background:rgba(251,216,0,.16);border-color:var(--gold)}
+.brow.copied .ic{stroke:var(--gold)}
+.copyall{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:11px;
+  padding:13px;border:0;border-radius:11px;cursor:pointer;background:var(--gold);
+  color:var(--violet-ink);font-family:var(--f-body);font-size:14px;font-weight:700;
+  transition:filter .15s;
+}
+.copyall:hover{filter:brightness(1.07)}
+.copyall svg{width:17px;height:17px;stroke:var(--violet-ink)}
+
+
+/* ═══ подвал ═══════════════════════════════════════════════════ */
+footer{
+  position:relative;margin-top:40px;padding:34px 0 74px;
+  background:var(--violet-ink);color:#CDBFE6;overflow:hidden;
+}
+/* уходящая к горизонту золотая сетка — мотив дороги/поля с эмблемы */
+footer::before{
+  content:"";position:absolute;left:-45%;right:-45%;bottom:0;height:520px;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 70px,rgba(251,216,0,.40) 70px 73px),
+    repeating-linear-gradient(0deg,transparent 0 46px,rgba(251,216,0,.28) 46px 49px);
+  transform:perspective(620px) rotateX(75deg);transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top,#000 4%,transparent 60%);
+  mask-image:linear-gradient(to top,#000 4%,transparent 60%);
+  pointer-events:none;
+}
+footer .col{position:relative;text-align:center}
+footer .fname{font-family:var(--f-display);font-weight:600;font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:#fff}
+footer .faddr{margin-top:8px;font-size:13px;line-height:1.5}
+footer .fmeta{margin-top:14px;font-size:11.5px;color:#8F81AC;font-family:var(--f-data)}
+footer a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(251,216,0,.4)}
+
+/* ═══ лайтбокс документа ═══════════════════════════════════════ */
+.lb{position:fixed;inset:0;z-index:100;display:none;background:rgba(20,3,40,.94)}
+.lb.on{display:flex;flex-direction:column}
+.lb-bar{
+  display:flex;align-items:center;gap:10px;padding:12px 14px;
+  border-bottom:1px solid rgba(255,255,255,.12);flex:none;
+}
+.lb-title{flex:1;min-width:0;color:#fff;font-size:13.5px;font-weight:600;line-height:1.3}
+.lb-title span{display:block;font-family:var(--f-data);font-size:11.5px;color:#AC9CC9;font-weight:400}
+.lb-btn{
+  display:inline-flex;align-items:center;gap:7px;flex:none;cursor:pointer;
+  font-family:var(--f-body);font-size:12.5px;font-weight:600;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;
+  border-radius:999px;padding:8px 14px;transition:background .15s;
+}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb-btn.gold{background:var(--gold);border-color:var(--gold);color:var(--violet-ink)}
+.lb-btn svg{width:15px;height:15px;stroke:currentColor}
+.lb-btn.icon{padding:8px;border-radius:50%}
+.lb-scroll{flex:1;overflow:auto;padding:14px;-webkit-overflow-scrolling:touch;text-align:center}
+.lb-scroll img{
+  width:min(760px,100%);height:auto;border-radius:8px;background:#fff;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);transition:width .2s ease;
+}
+.lb-scroll img.zoomed{width:max(1400px,180%);border-radius:0;cursor:zoom-out}
+.lb-scroll img:not(.zoomed){cursor:zoom-in}
+
+/* ═══ тост ═════════════════════════════════════════════════════ */
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,22px);z-index:200;
+  background:var(--violet-ink);color:#fff;border:1px solid rgba(251,216,0,.5);
+  padding:11px 22px;border-radius:999px;font-size:14px;font-weight:600;
+  opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;
+  max-width:calc(100% - 32px);text-align:center;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<div class="lang" role="group" aria-label="Язык / Til / Language">
+  <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+  <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+</div>
+
+<header class="head">
+  <div class="band" aria-hidden="true"></div>
+  <img class="crest" src="{{LOGO}}" width="150" height="150"
+       alt="Incoming Uzbekistan Travel Agency">
+  <div class="col">
+    <h1 class="legal" id="legalName"></h1>
+    <p class="trading">Incoming Uzbekistan Travel Agency</p>
+
+
+    <nav class="quick" aria-label="Contacts">
+      <a class="qbtn" href="tel:+998909786786">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        <span data-t="call"></span>
+      </a>
+      <a class="qbtn" href="https://t.me/TimurSafaev" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.3 2.9 11.4c-.9.3-.9 1.5 0 1.8l4.6 1.5 1.8 5.4c.2.7 1.1.9 1.6.4l2.6-2.5 4.6 3.4c.6.4 1.4.1 1.6-.6l3.4-15.2c.2-.8-.6-1.5-1.6-1.3Z"/><path d="m7.5 14.7 10.6-7.4-8 8.6"/></svg>
+        <span>Telegram</span>
+      </a>
+      <a class="qbtn" href="mailto:info@incoming.uz">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2.6 6.2 8.3 5.7c.7.5 1.6.5 2.3 0l8.2-5.7"/></svg>
+        <span>E-mail</span>
+      </a>
+      <a class="qbtn" href="https://incoming.uz" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.8 4 6 4 9.5s-1.4 6.7-4 9.5c-2.6-2.8-4-6-4-9.5s1.4-6.7 4-9.5Z"/></svg>
+        <span data-t="site"></span>
+      </a>
+    </nav>
+
+    <button class="cta" type="button" id="saveContact">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M18 8v6M21 11h-6"/></svg>
+      <span data-t="saveContact"></span>
+    </button>
+  </div>
+</header>
+
+<section id="documents">
+  <div class="col">
+    <p class="eyebrow"><span data-t="secDocs"></span></p>
+    <div class="docs">
+      <button class="doc" type="button" data-doc="lic">
+        <span class="shot">
+          <img src="{{LIC_THUMB}}" alt="" loading="lazy">
+          <span class="zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8.5v5M8.5 11h5"/></svg>
+            <span data-t="open"></span>
+          </span>
+        </span>
+        <span class="cap">
+          <span class="t" data-doc-title="lic"></span>
+          <span class="s" data-doc-sub="lic"></span>
+        </span>
+      </button>
+
+      <button class="doc" type="button" data-doc="cert">
+        <span class="shot">
+          <img src="{{CERT_THUMB}}" alt="" loading="lazy">
+          <span class="zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8.5v5M8.5 11h5"/></svg>
+            <span data-t="open"></span>
+          </span>
+        </span>
+        <span class="cap">
+          <span class="t" data-doc-title="cert"></span>
+          <span class="s" data-doc-sub="cert"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="licence">
+  <div class="col">
+    <p class="eyebrow"><span data-t="secLicence"></span></p>
+    <dl class="facts" id="licFacts"></dl>
+    <ul class="kinds" id="licKinds"></ul>
+  </div>
+</section>
+
+<section id="company">
+  <div class="col">
+    <p class="eyebrow"><span data-t="secCompany"></span></p>
+    <div class="rows" id="companyRows"></div>
+  </div>
+</section>
+
+<section id="bank">
+  <div class="col">
+    <div class="bank">
+      <p class="eyebrow"><span data-t="secBank"></span></p>
+      <div class="tabs" role="tablist" id="curTabs"></div>
+      <div class="brows" id="bankRows" role="tabpanel"></div>
+      <button class="copyall" type="button" id="copyAll">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span data-t="copyAll"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="col">
+    <p class="fname">GT Marketing and Tourism</p>
+    <p class="faddr" id="footAddr"></p>
+    <p class="fmeta">
+      <span data-t="tin"></span> 312 097 521 ·
+      <a href="https://incoming.uz" target="_blank" rel="noopener">incoming.uz</a>
+    </p>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <div class="lb-bar">
+    <div class="lb-title" id="lbTitle"></div>
+    <button class="lb-btn gold" type="button" id="lbSave">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M3.5 16.5v2A2.5 2.5 0 0 0 6 21h12a2.5 2.5 0 0 0 2.5-2.5v-2"/></svg>
+      <span data-t="download"></span>
+    </button>
+    <button class="lb-btn icon" type="button" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="lb-scroll" id="lbScroll"><img id="lbImg" src="" alt=""></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/* ── данные ───────────────────────────────────────────────────
+   Три языка: ru — русский, uz — o‘zbekcha, en — English.
+   Источники: лицензия № 749920, свидетельство о госрегистрации
+   № 2805487, карточка банковских реквизитов. */
+
+const LANGS = ["ru", "uz", "en"];
+
+/* интерфейсные надписи */
+const T = {
+  call:        {ru:"Позвонить", uz:"Qo‘ng‘iroq", en:"Call"},
+  site:        {ru:"Сайт", uz:"Sayt", en:"Website"},
+  saveContact: {ru:"Сохранить контакт", uz:"Kontaktni saqlash", en:"Save the contact"},
+  secDocs:     {ru:"Документы", uz:"Hujjatlar", en:"Documents"},
+  secLicence:  {ru:"Лицензия", uz:"Litsenziya", en:"Licence"},
+  secCompany:  {ru:"Реквизиты компании", uz:"Kompaniya rekvizitlari", en:"Company details"},
+  secBank:     {ru:"Банковские реквизиты", uz:"Bank rekvizitlari", en:"Bank details"},
+  open:        {ru:"Открыть", uz:"Ochish", en:"Open"},
+  download:    {ru:"Скачать", uz:"Yuklab olish", en:"Save"},
+  copyAll:     {ru:"Скопировать все реквизиты", uz:"Barcha rekvizitlarni nusxalash", en:"Copy every field"},
+  tin:         {ru:"ИНН", uz:"STIR", en:"TIN"},
+  vcfSaved:    {ru:"Карточка контакта скачана", uz:"Kontakt kartasi yuklab olindi", en:"Contact card downloaded"},
+  vcfCopied:   {ru:"Контакты скопированы", uz:"Kontaktlar nusxalandi", en:"Contacts copied"},
+  copied:      {ru:"Скопировано", uz:"Nusxalandi", en:"Copied"},
+  allCopied:   {ru:"Реквизиты скопированы", uz:"Rekvizitlar nusxalandi", en:"Details copied"},
+  saving:      {ru:"Готовим файл…", uz:"Fayl tayyorlanmoqda…", en:"Preparing the file…"},
+  saved:       {ru:"Файл сохранён", uz:"Fayl saqlandi", en:"File saved"},
+  declined:    {ru:"Сохранение отменено", uz:"Saqlash bekor qilindi", en:"Saving cancelled"},
+  nosave:      {ru:"Скачивание здесь недоступно — документ можно посмотреть на экране",
+                uz:"Bu yerda yuklab olish ishlamaydi — hujjatni ekranda ko‘rish mumkin",
+                en:"Saving is unavailable here — the document stays viewable on screen"}
+};
+
+const LEGAL = {
+  ru:"ООО «GT&nbsp;Marketing<br>and&nbsp;Tourism»",
+  uz:"«GT&nbsp;Marketing<br>and&nbsp;Tourism» MChJ",
+  en:"GT&nbsp;Marketing<br>and&nbsp;Tourism&nbsp;LLC"
+};
+
+
+const ADDRESS = {
+  ru:"г. Ташкент, Яшнободский район, МСГ Дустабад,<br>ул. Султанали Машхадий, 210",
+  uz:"Toshkent shahri, Yashnobod tumani, Do‘stobod MFY,<br>Sultonali Mashxadiy ko‘chasi, 210-uy",
+  en:"210 Sultonali Mashxadiy street, Do‘stobod MFY,<br>Yashnobod district, Tashkent, Uzbekistan"
+};
+
+const COMPANY = [
+  {k:{ru:"Полное наименование", uz:"To‘liq nomi", en:"Legal name"},
+   v:{ru:"ООО «GT MARKETING AND TOURISM»",
+      uz:"«GT MARKETING AND TOURISM» mas’uliyati cheklangan jamiyat",
+      en:"GT MARKETING AND TOURISM LLC"}},
+  {k:{ru:"ИНН", uz:"STIR", en:"TIN"}, v:"312 097 521", num:1, copy:"312097521"},
+  {k:{ru:"Директор", uz:"Direktor", en:"Director"},
+   v:{ru:"Сафаев Тимур Равшанович", uz:"Safayev Timur Ravshanovich", en:"Safayev Timur Ravshanovich"}},
+  {k:{ru:"Дата регистрации", uz:"Ro‘yxatdan o‘tgan sana", en:"Registered"}, v:"29.04.2025", num:1},
+  {k:{ru:"Свидетельство", uz:"Guvohnoma", en:"Certificate"},
+   v:{ru:"№ 2805487", uz:"№ 2805487", en:"No. 2805487"}, num:1, copy:"2805487"},
+  {k:{ru:"Адрес", uz:"Manzil", en:"Address"},
+   v:{ru:"г. Ташкент, Яшнободский р-н, МСГ Дустабад, ул. Султанали Машхадий, 210",
+      uz:"Toshkent sh., Yashnobod t., Do‘stobod MFY, Sultonali Mashxadiy ko‘chasi, 210-uy",
+      en:"210 Sultonali Mashxadiy st., Do‘stobod MFY, Yashnobod dist., Tashkent"}},
+  {k:{ru:"Телефон", uz:"Telefon", en:"Phone"}, v:"+998 90 978 67 86", num:1, copy:"+998909786786"},
+  {k:{ru:"Эл. почта", uz:"E-pochta", en:"E-mail"}, v:"info@incoming.uz"},
+  {k:{ru:"Сайт", uz:"Sayt", en:"Website"}, v:"incoming.uz", copy:"https://incoming.uz"},
+  {k:{ru:"Telegram", uz:"Telegram", en:"Telegram"}, v:"@TimurSafaev", copy:"https://t.me/TimurSafaev"}
+];
+
+const LIC_FACTS = [
+  {k:{ru:"Номер лицензии", uz:"Litsenziya raqami", en:"Licence number"},
+   v:{ru:"№ 749920", uz:"№ 749920", en:"No. 749920"}, num:1},
+  {k:{ru:"Номер по реестру", uz:"Reyestr raqami", en:"Registry number"}, v:"L-41802439", num:1},
+  {k:{ru:"Срок действия", uz:"Amal qilish muddati", en:"Validity"},
+   v:{ru:"с 02.05.2025 — бессрочно", uz:"02.05.2025 dan — muddatsiz", en:"from 02.05.2025 — indefinite"}},
+  {k:{ru:"Дата выдачи", uz:"Berilgan sana", en:"Issued"}, v:"02.05.2025", num:1},
+  {k:{ru:"Уполномоченный орган", uz:"Vakolatli organ", en:"Issuing authority"},
+   v:{ru:"Комитет по туризму Управления туризма города Ташкента",
+      uz:"Toshkent shahar turizm boshqarmasining turizm qo‘mitasi",
+      en:"Tourism Committee, Tashkent City Tourism Department"}}
+];
+
+const LIC_KINDS = [
+  {ru:"Турагентская деятельность — внутренний туризм на территории Республики Узбекистан",
+   uz:"Turagentlik faoliyati — O‘zbekiston Respublikasi hududida ichki turizm",
+   en:"Travel agency — domestic tourism within the Republic of Uzbekistan"},
+  {ru:"Турагентская деятельность — выездной туризм, включая медицинский и образовательный",
+   uz:"Turagentlik faoliyati — chiquvchi turizm, shu jumladan tibbiy va ta’lim turizmi",
+   en:"Travel agency — outbound tourism, medical and educational travel included"},
+  {ru:"Турагентская деятельность — въездной туризм, привлечение иностранных граждан в Узбекистан",
+   uz:"Turagentlik faoliyati — kiruvchi turizm, chet el fuqarolarini O‘zbekistonga jalb qilish",
+   en:"Travel agency — inbound tourism, hosting foreign visitors in Uzbekistan"}
+];
+
+/* Банк один на все валюты — меняется только номер счёта. */
+const BANK_NAME = {
+  ru:"«Kapital 24» — филиал розничного бизнеса Капиталбанка",
+  uz:"«Kapital 24» — Kapitalbankning chakana biznes filiali",
+  en:"“Kapital 24” — retail business branch of Kapitalbank"
+};
+const ACCOUNTS = {
+  UZS:{label:"UZS", acc:"20208 000 4072 3444 1001", raw:"20208000407234441001"},
+  USD:{label:"USD", acc:"20208 840 7072 3444 1001", raw:"20208840707234441001"},
+  EUR:{label:"EUR", acc:"20208 978 9072 3444 1001", raw:"20208978907234441001"},
+  RUB:{label:"RUB", acc:"20208 643 8072 3444 1001", raw:"20208643807234441001"}
+};
+
+function bankRows(code){
+  const a = ACCOUNTS[code];
+  return [
+    {k:{ru:"Банк", uz:"Bank", en:"Bank"}, v:BANK_NAME},
+    {k:{ru:"МФО", uz:"MFO", en:"MFO"}, v:"01158", num:1},
+    {k:{ru:"Расчётный счёт", uz:"Hisob raqami", en:"Account"}, v:a.acc, num:1, copy:a.raw},
+    {k:{ru:"SWIFT", uz:"SWIFT", en:"SWIFT"}, v:"KACHUZ22", num:1},
+    {k:{ru:"ИНН", uz:"STIR", en:"TIN"}, v:"312 097 521", num:1, copy:"312097521"}
+  ];
+}
+
+const DOCS = {
+  lic:{
+    t:{ru:"Лицензия на туристическую деятельность",
+       uz:"Turizm faoliyati uchun litsenziya",
+       en:"Tourism activity licence"},
+    s:{ru:"№ 749920 · 02.05.2025", uz:"№ 749920 · 02.05.2025", en:"No. 749920 · 02.05.2025"},
+    img:"{{LIC_FULL}}", pdf:"{{LIC_PDF}}", file:"GT-Marketing-Tourism-licence-749920"
+  },
+  cert:{
+    t:{ru:"Свидетельство о государственной регистрации",
+       uz:"Davlat ro‘yxatidan o‘tkazilganlik to‘g‘risida guvohnoma",
+       en:"Certificate of state registration"},
+    s:{ru:"№ 2805487 · 29.04.2025", uz:"№ 2805487 · 29.04.2025", en:"No. 2805487 · 29.04.2025"},
+    img:"{{CERT_FULL}}", pdf:"{{CERT_PDF}}", file:"GT-Marketing-Tourism-registration-2805487"
+  }
+};
+
+/* Карточка контакта директора. Скачивается как .vcf — телефон и почта
+   открывают её как готовый контакт. */
+const VCARD = [
+  "BEGIN:VCARD", "VERSION:3.0",
+  "N:Safayev;Timur;Ravshanovich;;", "FN:Timur Safayev",
+  "ORG:GT MARKETING AND TOURISM LLC", "TITLE:Director",
+  "TEL;TYPE=WORK,VOICE:+998909786786",
+  "EMAIL;TYPE=WORK:info@incoming.uz",
+  "URL:https://incoming.uz",
+  "ADR;TYPE=WORK:;;Sultonali Mashxadiy 210, Do'stobod MFY, Yashnobod;Tashkent;;;Uzbekistan",
+  "NOTE:TIN 312097521 | Tourism licence 749920",
+  "END:VCARD"
+].join("\r\n");
+
+const ICON_COPY = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+const ICON_OK   = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+
+let lang = "ru";
+let cur  = "UZS";
+
+/* ── помощники ────────────────────────────────────────────────── */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+                          .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+/* поле может быть строкой (одинаково на всех языках) или словарём по языкам */
+const loc = f => (f && typeof f === "object") ? (f[lang] || f.ru) : f;
+const t   = id => loc(T[id]);
+const cpy = o => o.copy || loc(o.v);
+
+let toastTimer;
+function toast(msg){
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("on"), 2100);
+}
+
+function flash(el){
+  if(!el) return;
+  el.classList.add("copied");
+  const ic = el.querySelector(".ic");
+  if(ic) ic.outerHTML = ICON_OK;
+  setTimeout(() => {
+    el.classList.remove("copied");
+    const j = el.querySelector(".ic");
+    if(j) j.outerHTML = ICON_COPY;
+  }, 1500);
+}
+
+function copy(text, el){
+  const done = () => { toast(t("copied")); flash(el); };
+  const legacy = () => {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch(e){ /* тихо */ }
+    document.body.removeChild(ta);
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done, legacy);
+  } else {
+    legacy();
+  }
+}
+
+/* ── рендер ───────────────────────────────────────────────────── */
+function rowHTML(o, cls){
+  return '<button class="' + cls + '" type="button" data-copy="' + esc(cpy(o)) + '">' +
+           '<span class="txt">' +
+             '<span class="k">' + esc(loc(o.k)) + '</span>' +
+             '<span class="v' + (o.num ? " num" : "") + '">' + esc(loc(o.v)) + '</span>' +
+           '</span>' + ICON_COPY +
+         '</button>';
+}
+
+function render(){
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-t]").forEach(e => { e.innerHTML = t(e.dataset.t); });
+  document.getElementById("legalName").innerHTML = loc(LEGAL);
+  document.getElementById("footAddr").innerHTML = loc(ADDRESS);
+
+  document.querySelectorAll("[data-doc-title]").forEach(e => {
+    e.textContent = loc(DOCS[e.dataset.docTitle].t);
+  });
+  document.querySelectorAll("[data-doc-sub]").forEach(e => {
+    e.textContent = loc(DOCS[e.dataset.docSub].s);
+  });
+
+  document.getElementById("companyRows").innerHTML =
+    COMPANY.map(o => rowHTML(o, "row")).join("");
+
+  document.getElementById("licFacts").innerHTML = LIC_FACTS.map(o =>
+    '<div class="fact"><dt>' + esc(loc(o.k)) + '</dt>' +
+    '<dd' + (o.num ? ' class="num"' : "") + '>' + esc(loc(o.v)) + '</dd></div>').join("");
+
+  document.getElementById("licKinds").innerHTML =
+    LIC_KINDS.map(o => "<li>" + esc(loc(o)) + "</li>").join("");
+
+  document.getElementById("curTabs").innerHTML = Object.keys(ACCOUNTS).map(k =>
+    '<button class="tab" type="button" role="tab" data-cur="' + k + '"' +
+    ' aria-selected="' + (k === cur) + '">' + ACCOUNTS[k].label + "</button>").join("");
+
+  document.getElementById("bankRows").innerHTML =
+    bankRows(cur).map(o => rowHTML(o, "brow")).join("");
+}
+
+/* ── лайтбокс документа ───────────────────────────────────────── */
+const lb       = document.getElementById("lightbox");
+const lbImg    = document.getElementById("lbImg");
+const lbScroll = document.getElementById("lbScroll");
+let openDoc = null;
+let lastFocus = null;
+
+function showDoc(id){
+  const d = DOCS[id];
+  if(!d) return;
+  openDoc = id;
+  lastFocus = document.activeElement;
+  document.getElementById("lbTitle").innerHTML =
+    esc(loc(d.t)) + "<span>" + esc(loc(d.s)) + "</span>";
+  lbImg.src = d.img;
+  lbImg.alt = loc(d.t);
+  lbImg.classList.remove("zoomed");
+  lbScroll.scrollTop = 0;
+  lb.classList.add("on");
+  document.body.style.overflow = "hidden";
+  document.getElementById("lbClose").focus();
+}
+
+function hideDoc(){
+  lb.classList.remove("on");
+  document.body.style.overflow = "";
+  openDoc = null;
+  if(lastFocus) lastFocus.focus();
+}
+
+function b64ToBlob(b64, type){
+  const bin = atob(b64);
+  const buf = new Uint8Array(bin.length);
+  for(let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return new Blob([buf], {type: type});
+}
+
+/* Сохранение работает двумя путями: через возможность `downloads`
+   опубликованной страницы, а при собственном хостинге — обычной ссылкой.
+   Если PDF там не разрешён, отдаём то же изображение документа. */
+async function saveDoc(){
+  const d = DOCS[openDoc];
+  if(!d) return;
+  const asPdf = () => ({blob: b64ToBlob(d.pdf.split(",")[1], "application/pdf"),
+                        name: d.file + ".pdf"});
+  const asImg = () => ({blob: b64ToBlob(d.img.split(",")[1], "image/webp"),
+                        name: d.file + ".webp"});
+
+  const api = (window.claude && window.claude.use)
+    ? await window.claude.use("downloads").catch(() => null)
+    : null;
+
+  if(api){
+    toast(t("saving"));
+    for(const make of [asPdf, asImg]){
+      const f = make();
+      try {
+        await api.save({filename: f.name, data: f.blob});
+        toast(t("saved"));
+        return;
+      } catch(err){
+        const code = err && err.code;
+        if(code === "declined"){ toast(t("declined")); return; }
+        if(code !== "extension_not_enabled" && code !== "rejected_extension"){
+          toast(t("nosave"));
+          return;
+        }
+        /* PDF здесь не разрешён — пробуем изображение */
+      }
+    }
+    toast(t("nosave"));
+    return;
+  }
+
+  const f = asPdf();
+  const url = URL.createObjectURL(f.blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = f.name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+
+/* ── события ──────────────────────────────────────────────────── */
+document.addEventListener("click", e => {
+  const c = e.target.closest("[data-copy]");
+  if(c){ copy(c.dataset.copy, c); return; }
+
+  const tab = e.target.closest(".tab");
+  if(tab){ cur = tab.dataset.cur; render(); return; }
+
+  const l = e.target.closest(".lang button");
+  if(l){
+    lang = l.dataset.lang;
+    document.querySelectorAll(".lang button")
+      .forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    render();
+    if(openDoc) showDoc(openDoc);
+    return;
+  }
+
+  const d = e.target.closest("[data-doc]");
+  if(d){ showDoc(d.dataset.doc); return; }
+});
+
+document.getElementById("lbClose").addEventListener("click", hideDoc);
+document.getElementById("lbSave").addEventListener("click", saveDoc);
+lbImg.addEventListener("click", () => lbImg.classList.toggle("zoomed"));
+lb.addEventListener("click", e => { if(e.target === lb || e.target === lbScroll) hideDoc(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape" && openDoc) hideDoc(); });
+
+/* .vcf скачивается на обычном хостинге. В превью артефакта скачивание
+   заблокировано песочницей, поэтому там кладём контакты в буфер обмена. */
+document.getElementById("saveContact").addEventListener("click", () => {
+  const inArtifact = !!(window.claude && window.claude.use);
+  if(inArtifact){
+    copy([
+      loc(COMPANY[0].v),
+      loc(COMPANY[2].k) + ": " + loc(COMPANY[2].v),
+      "+998 90 978 67 86",
+      "info@incoming.uz",
+      "https://incoming.uz",
+      "t.me/TimurSafaev"
+    ].join("\n"), null);
+    toast(t("vcfCopied"));
+    return;
+  }
+  const url = URL.createObjectURL(new Blob([VCARD], {type:"text/vcard;charset=utf-8"}));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "GT-Marketing-and-Tourism.vcf";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  toast(t("vcfSaved"));
+});
+
+document.getElementById("copyAll").addEventListener("click", () => {
+  const head = loc(COMPANY[0].v) + " / " + t("tin") + " 312097521";
+  copy(head + "\n" + ACCOUNTS[cur].label + "\n" +
+       bankRows(cur).map(o => loc(o.k) + ": " + cpy(o)).join("\n"), null);
+  toast(t("allCopied"));
+});
+
+/* язык браузера — только если он один из наших */
+const navLang = (navigator.language || "ru").slice(0, 2).toLowerCase();
+if(LANGS.indexOf(navLang) !== -1) lang = navLang;
+document.querySelectorAll(".lang button")
+  .forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+
+render();
+</script>
